@@ -1,0 +1,16 @@
+Package: risco
+Title: (Re)labels ISCO 88 codes.
+Version: 0.1
+Authors@R: person("Daniel", "Paierl",
+  email = "dpaierl@mail.uni-mannheim",
+  role = c("aut", "cre"))
+Author: Daniel L. Paierl [aut, cre]
+Maintainer: Daniel L. Paierl <dpaierl@mail.uni-mannheim>
+Description: The package (Re)labels ISCO 88 codes (2 to 4 digits) into english, french and german labels.
+  The labels come from http://www2.warwick.ac.uk/fac/soc/ier/research/classification/isco88/
+  Barbara Wilson -- Warwick Institute for Employment Research
+Depends: R (>= 3.4.0)
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
