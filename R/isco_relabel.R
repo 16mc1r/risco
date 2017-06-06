@@ -46,7 +46,7 @@ isco_relabel <- function(isco_col, label_col, dest_language = "english"){
     #reintroduce to the modified strings into replacements
     replacements[nonmatches$index, 1] <- nonmatches[, 2]
   }
-  return(replacements)
+  return(unlist(replacements[,1]))
 }
 
 
