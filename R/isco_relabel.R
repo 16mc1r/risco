@@ -16,7 +16,6 @@
 isco_relabel <- function(isco_col, label_col, dest_language = "english"){
   #checks
   labels <- risco::labels
-  #browser()
   languages <- c("german", "english", "french")
 
   stopifnot(typeof(isco_col) %in% c("integer", "double"),
@@ -41,9 +40,8 @@ isco_relabel <- function(isco_col, label_col, dest_language = "english"){
                              label_col[which(is.na(replacements))])
 
     #mark them with NO MATCH by pasting the strings together
-    nonmatches[, 2] <- lapply(nonmatches[, 2], function(x){
-      paste("NO MATCH_", x, sep = "")
-    })
+    #browser()
+    nonmatches[, 2] <- paste("NO MATCH_", nonmatches[, 2], sep = "")
 
     #reintroduce to the modified strings into replacements
     replacements[nonmatches$index, 1] <- nonmatches[, 2]
