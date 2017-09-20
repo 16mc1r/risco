@@ -2,20 +2,41 @@
 % Please edit documentation in R/isco_relabel.R
 \name{isco_relabel}
 \alias{isco_relabel}
-\title{ISCO relabeling in different languages}
+\title{ISCO88 relabeling in different languages}
 \usage{
 isco_relabel(isco_col, label_col, dest_language = "english")
 }
 \arguments{
-\item{isco_col}{Column in where the ISCO codes(2 to 4 digits) are stored. Please indicate
+\item{isco_col}{Column in which the ISCO88 codes(2 to 4 digits) are stored. Please indicate
 via subsetting.}
 
-\item{label_col}{Column where the isco labels are stored. Please indicate via subsetting.}
+\item{label_col}{Column where the ISCO88 labels are stored. Please indicate via subsetting.}
 
-\item{dest_language}{Denstination language. Indicate on of "german", "english", "french"
+\item{dest_language}{Destination language. Indicate on of "german", "english", "french"
 as a string. Defaults to "english".}
 }
 \description{
-Thisfunction takes isco88 codes (2 to 4 digits) as its argument and changes the
+This function takes ISCO88 codes (2 to 4 digits) as its argument and changes the
 labels in the specified column (second argument) to the desired language.
+}
+\details{
+\strong{Treatment of missing or unknown ISCO88 codes:} If the ISCO88 code in a row cannot be
+matched to a ISCO88 code in risco::labels data the label_col of the line in question is marked
+with "NO MATCH_".
+
+Technically the string "NO MATCH_" is pasted together with the label of the line with a missing ISCO88 code.
+}
+\examples{
+# Setup result container
+res1 <- risco::risco_test_1
+res2 <- risco::risco_test_2
+
+res1$german <- isco_relabel(isco_col = res1$isco_code,
+                           label_col = res1$english, dest_language = "german")
+
+# add German labels to the data with missings
+res2$german <- isco_relabel(isco_col = res2$isco_code,
+                           label_col = res2$english, dest_language = "german")
+
+
 }

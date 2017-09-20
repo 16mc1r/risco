@@ -3,13 +3,13 @@
 \docType{data}
 \name{labels}
 \alias{labels}
-\title{ISCO 88 labels in English, French and German}
+\title{ISCO88 labels in English, French and German}
 \format{Data frame with 510 rows and 4 columns
 \describe{
-  \item{isco_code}{ISCO 88 code of occupations}
-  \item{english}{ISCO 88 labels in english}
-  \item{french}{ISCO 88 labels in french}
-  \item{german}{ISCO 88 labels in german}
+  \item{isco_code}{ISCO88 code of occupations}
+  \item{english}{ISCO88 labels in english}
+  \item{french}{ISCO88 labels in french}
+  \item{german}{ISCO88 labels in german}
   ...
 }}
 \source{

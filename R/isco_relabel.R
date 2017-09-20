@@ -1,18 +1,37 @@
-#' ISCO relabeling in different languages
+#' ISCO88 relabeling in different languages
 #'
-#' @description Thisfunction takes isco88 codes (2 to 4 digits) as its argument and changes the
+#' @description This function takes ISCO88 codes (2 to 4 digits) as its argument and changes the
 #' labels in the specified column (second argument) to the desired language.
 #'
-#' @param isco_col Column in where the ISCO codes(2 to 4 digits) are stored. Please indicate
+#' @param isco_col Column in which the ISCO88 codes(2 to 4 digits) are stored. Please indicate
 #' via subsetting.
-#' @param label_col Column where the isco labels are stored. Please indicate via subsetting.
-#' @param dest_language Denstination language. Indicate on of "german", "english", "french"
+#' @param label_col Column where the ISCO88 labels are stored. Please indicate via subsetting.
+#' @param dest_language Destination language. Indicate on of "german", "english", "french"
 #' as a string. Defaults to "english".
 #'
+#' @details
+#' \strong{Treatment of missing or unknown ISCO88 codes:} If the ISCO88 code in a row cannot be
+#' matched to a ISCO88 code in risco::labels data the label_col of the line in question is marked
+#' with "NO MATCH_".
+#'
+#' Technically the string "NO MATCH_" is pasted together with the label of the line with a missing ISCO88 code.
 #' @return
 #' @export
 #'
 #' @examples
+#' # Setup result container
+#' res1 <- risco::risco_test_1
+#' res2 <- risco::risco_test_2
+#'
+# add German labels to the data
+#'res1$german <- isco_relabel(isco_col = res1$isco_code,
+#'                            label_col = res1$english, dest_language = "german")
+#'
+#'# add German labels to the data with missings
+#'res2$german <- isco_relabel(isco_col = res2$isco_code,
+#'                            label_col = res2$english, dest_language = "german")
+#'
+#'
 isco_relabel <- function(isco_col, label_col, dest_language = "english"){
   #checks
   labels <- risco::labels
@@ -26,6 +45,9 @@ isco_relabel <- function(isco_col, label_col, dest_language = "english"){
   #main body
   #extract the matching labels
   replacements <- labels[match(isco_col, labels$isco_code), dest_language]
+
+  # converting to a data frame, otherwhise there are problems later
+  replacements <- as.data.frame(replacements, stringsAsFactors = FALSE)
 
 
   # if there are nonmatches mark them
