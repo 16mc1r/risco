@@ -22,8 +22,8 @@ isco_relabel(isco_col, label_col, dest_language = “english”)
 
 The core, and only, function of risco is the command isco_relabel() which has three arguments: 
 
-– *isco_col* : The column in which your ISCO88 codes are stored. The package can handle all codes from two to four digits. 
-– *label_col* : The column in which your current labels are stored. These are needed in the case that no match (more on that later) could be found. For example, when you merged some ISCO88 groups by hand due to a lack of people in these groups. 
+* *isco_col* : The column in which your ISCO88 codes are stored. The package can handle all codes from two to four digits. 
+* *label_col* : The column in which your current labels are stored. These are needed in the case that no match (more on that later) could be found. For example, when you merged some ISCO88 groups by hand due to a lack of people in these groups. 
 
 *dest_language* : The destination language. The package provides German, English and French occupation labels. This defaults to English.  The codes are based on the label files of the [Warwick Institute for Employment Research](https://web.archive.org/web/20170117172404/http://www2.warwick.ac.uk/fac/soc/ier/research/classification/isco88). In R this is just a data.frame with four columns that hold the ISCO88 code and the labels in the three languages.
 
