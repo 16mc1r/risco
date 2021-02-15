@@ -46,7 +46,7 @@ Here I tell R that the isco88 codes are found in the “isco_code” column of t
 
 Of course you could overwrite the original labels in “english” but I think its better to put them in a new column in the data frame holding your ISCO88 data. Therefore, I put them in res2$german. This allows you to compare them and check if the operation worked.
 
-** image here**
+![result](isco_res.jpg)
 
 Here it worked. Furthermore, we can see what happens when there are no matches to be found for that code, or the code is missing (NA): The package takes the label supplied in the function call(isco_relabel) and adds a “NO MATCH_” to the beginning so that you can easily spot errors. In addition R gives you the warning:
 
